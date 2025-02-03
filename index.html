@@ -197,6 +197,30 @@
     z-index: 1;
 }
 
+/* Mobile View for yellow shape */
+@media (max-width: 768px) {
+    .yellow-shape {
+        width: 40vw;  /* Adjust shape size for mobile */
+        height: 40vw; /* Adjust shape size for mobile */
+        top: 10%;     /* Move shape further down */
+        z-index: -1;  /* Ensure it stays behind other elements */
+    }
+
+    .blue-shape {
+        width: 40vw;
+        height: 40vw;
+        z-index: -1;  /* Ensure it stays behind other elements */
+    }
+
+    .title {
+        font-size: 2rem; /* Smaller font for mobile */
+    }
+
+    .tagline {
+        font-size: 1rem; /* Smaller tagline */
+    }
+}
+
 /* Animation for the sliding effect */
 @keyframes slide {
     0% {
