@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux Tangram de Manchot</title>
+    <link rel="icon" href="yellow.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+    background-color: #fdfcf7;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+/* Initial Design Section */
+.container {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Media Queries for mobile */
+@media (max-width: 768px) {
+    /* Make the container take up more height on mobile */
+    .container {
+        height: 50vh; /* Take up the full height of the screen */
+    }
+
+    .title {
+        font-size: 2.5rem; /* Slightly smaller font size */
+    }
+
+    .tagline {
+        font-size: 1.1rem; /* Adjust tagline font size for mobile */
+        margin-bottom: 10px;
+    }
+
+    .bumble-toy-cta {
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    .bumble-toy-cta h2 {
+        font-size: 1.5rem;
+    }
+
+    .bumble-toy-cta p {
+        font-size: 1rem;
+    }
+
+    .bumble-toy-cta img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .yellow-shape, .blue-shape, .pink-shape, .red-shape {
+        width: 40vw; /* Adjust shape sizes for mobile */
+        height: 40vw;
+    }
+}
+
+
+.title {
+    font-size: 3rem;
+    color: #1e1e56;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.shape {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Slideshow Section */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: flex;
+    width: 300%; /* Adjust width to accommodate multiple images */
+    animation: slide 10s linear infinite;
+}
+
+.mySlides img {
+    width: 33.33%; /* Each image takes up 1/3 of the container's width */
+    height: auto; /* Keep the aspect ratio intact */
+}
+
+/* Bumble Toy CTA Section */
+.bumble-toy-cta {
+    position: relative;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.bumble-toy-cta h2 {
+    font-size: 2rem;
+    color: #1e1e56;
+    margin-bottom: 10px;
+}
+
+.bumble-toy-cta p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.bumble-toy-cta img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background: #e65c00;
+}
+
+/* Red and Pink Shapes */
+.bumble-toy-cta::before,
+.bumble-toy-cta::after {
+    content: '';
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.bumble-toy-cta::before {
+    background-image: url('red.png');
+    width: 25vw; /* 25% of viewport width */
+    height: 25vw; /* Maintain aspect ratio */
+    top: 10%;
+    left: -10%;
+}
+
+.bumble-toy-cta::after {
+    background-image: url('pink.png');
+    width: 20vw; /* 20% of viewport width */
+    height: 20vw; /* Maintain aspect ratio */
+    bottom: 10%;
+    right: -10%;
+}
+
+/* Yellow Shape */
+.yellow-shape {
+    width: 30vw;
+    height: 30vw;
+    background-image: url('yellow.png');
+    border-radius: 50% 50% 60% 40%;
+    top: 20%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Blue Shape */
+.blue-shape {
+    width: 25vw;
+    height: 20vw;
+    background-image: url('blue.png');
+    border-radius: 50% 50% 30% 30%;
+    bottom: 20%;
+    right: 5%;
+    transform: translate(50%, 50%);
+    z-index: 1;
+}
+
+/* Animation for the sliding effect */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    33% {
+        transform: translateX(-33.33%);
+    }
+    66% {
+        transform: translateX(-66.66%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Apply animation to the slides */
+.mySlides {
+    display: flex;
+    width: 300%; 
+    transition: transform 1s ease-in-out;
+    animation: slide 70s infinite ease-in-out;
+}
+@media (max-width: 768px) {
+    .yellow-shape {
+        width: 40vw;  /* Adjust shape size for mobile */
+        height: 40vw; /* Adjust shape size for mobile */
+        top: 10%;     /* Move shape further down */
+    }
+
+    .title {
+        font-size: 2rem; /* Smaller font for mobile */
+    }
+
+    .tagline {
+        font-size: 1rem; /* Smaller tagline */
+    }
+}
+
+
+/* Media Queries for mobile */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem; /* Smaller font for mobile */
+    }
+
+    .tagline {
+        font-size: 1rem; /* Smaller tagline */
+    }
+
+    .bumble-toy-cta h2 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+
+    .bumble-toy-cta p {
+        font-size: 1rem; /* Smaller text for mobile */
+    }
+
+    .bumble-toy-cta img {
+        width: 60px; /* Adjust image size for mobile */
+        height: 60px;
+    }
+
+   .blue-shape, .pink-shape, .red-shape {
+        width: 40vw; /* Adjust shape sizes for mobile */
+        height: 40vw;
+    }
+}
+  /* Tangram Section */
+.tangram-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #f0d2b6;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tangram-image {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+   
+}
+
+.tangram-text {
+    text-align: center; /* Center text inside the container */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align all child elements to the center */
+    justify-content: center; /* Center the content vertically if the height is enough */
+}
+.tangram-text p{
+    text-align: justify;
+    color: #000000;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.tangram-text h1, .tangram-text h3 {
+   
+    text-align: center;
+    color: #1e1e56;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ensure the text inside these elements is also centered */
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ff6600;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: flash 1s infinite;  /* Flashing animation */
+}
+
+/* Keyframes for the flashing effect */
+@keyframes flash {
+    0% {
+        opacity: 0.2;  /* Very dim (off state) */
+    }
+    50% {
+        opacity: 1;  /* Fully bright (on state) */
+    }
+    100% {
+        opacity: 0.2;  /* Back to dim (off state) */
+    }
+}
+
+.cta-button:hover {
+    background: #e65c00;
+    animation: none;  /* Stop flashing when hovered */
+}
+
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .tangram-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .tangram-image {
+        max-width: 100%;
+    }
+
+    .tangram-text {
+       
+        font-size: 13px;
+        text-align: center; /* Center the text for smaller screens */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Initial Design Section -->
+    <div class="container">
+        <div class="shape yellow-shape"></div>
+        <h1 class="title">Jeux Tangram de Manchot</h1>
+        <p class="tagline">Offrez une alternative éducative et amusante aux écrans</p>
+        <a href="https://www.youpi.co.ma/puzzles-de-tangram-en-bois.html" class="cta-button">Découvrir les Tangrams</a>
+        <div class="shape blue-shape"></div>
+    </div>
+
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="images/image1.jpg" alt="Image 1">
+            <img src="images/image2.jpg" alt="Image 2">
+            <img src="images/image3.jpg" alt="Image 3">
+        </div>
+    </div>
+    <!-- Tangram Section -->
+    <div class="tangram-section">
+       
+        <img src="images/tangramplaying.png" alt="Tangram Playing" class="tangram-image">
+        <div class="tangram-text">
+            <h1>Découvrez les jeux en bois Manchot : qualité, éducation et plaisir réunis</h1>
+            <p>
+                Conçus avec des matériaux durables et sécurisés, nos jeux en bois allient tradition et 
+                innovation pour accompagner le développement des enfants. Inspirés de la pédagogie Montessori, 
+                ils favorisent la créativité, la logique et la motricité fine tout en offrant des moments de jeu 
+                enrichissants. Avec Manchot, choisissez des jouets authentiques, éco-responsables et pensés 
+                pour éveiller l’intelligence des plus petits.
+            </p>
+            <h3>Offrez le meilleur à votre enfant</h3>
+            <a href="https://www.youpi.co.ma/puzzles-de-tangram-en-bois.html" class="cta-button">Acheter le Jouet</a>
+           
+        </div>
+    </div>
+    
+
+</body>
+</html>
